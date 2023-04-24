@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Timer</title>
+</head>
+<body>
+    <h1>Cronometru cu numărătoare inversă</h1>
+
+    <label for="cronometru">Introdu valoarea in secunde: </label>
+    <input type="number" id="cronometru" min="1" value="60">
+    <button onclick="startCountdown()">Start</button>
+    <button onclick="pauseCountdown()">Pauză</button>
+    <button onclick="resetCountdown()">Resetează</button> <br><br>
+    <div id="timer"></div>
+    <script>
+        let countdown = document.getElementById("timer");
+        let timeInput = document.getElementById("cronometru");
+        let time = parseInt(timeInput.value);
+        let interval;
+
+        function startCountdown() {
+            time = parseInt(timeInput.value);
+            interval = setInterval(function () {
+                time--;
+                let minute = Math.floor(time / 60);
+                let secunde = time % 60;
+                timer.innerHTML = minute + "m " + secunde + "s";
+                if (time == 0) {
+                    clearInterval(interval);
+                    alert("Time's up!");
+                }
+            }, 1000);
+        }
+
+        function pauseCountdown() {
+            clearInterval(interval);
+        }
+
+        function resetCountdown() {
+            clearInterval(interval);
+            time = parseInt(timeInput.value);
+            let minute = Math.floor(time / 60);
+            let secunde = time % 60;
+            timer.innerHTML = minute + "m " + secunde + "s";
+        }
+
+    </script>
+</body>
+</html>

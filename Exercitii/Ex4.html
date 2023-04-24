@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>JS program to capitalize first letter</title>
+        <style type="text/css">
+            body {margin: 30px;}
+        </style>
+    </head>
+    <body>
+        <form>
+            Enter some text: <input type="text" id="mytext" /><br />
+            <input type="button" onclick="capital_letter()" value="cCapitalize" />
+        </form>
+        <p>Result is: <br />
+        <span id="result"></span>
+        </p>
+        <script>
+            function capital_letter()
+            {
+                str = document.getElementById("mytext").value;
+                str = str.split(" ");
+                for (var i = 0, x = str.length; i < x; i++)
+                { str[i] = str[i][0].toUpperCase() + str[i].substr(1); }
+                document.getElementById("result").innerHTML = str.join(" ");
+            }
+        </script>
+    </body>
+</html>
